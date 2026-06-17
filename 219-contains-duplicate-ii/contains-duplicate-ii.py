@@ -3,14 +3,15 @@ class Solution(object):
         freq = {}
 
         for i in range(len(nums)):
-                if nums[i] not in freq:
-                    freq[nums[i]] = []
-                freq[nums[i]].append(i)    
-        for index in freq.values():
-            for j in range(len(index)-1):
-                if (index[j+1]-index[j]<=k):
+            if nums[i] in freq:
+                if i - freq[nums[i]]<=k:
                     return True
+            freq[nums[i]]=i
         return False
+            
+
+
+            
 
         
 
