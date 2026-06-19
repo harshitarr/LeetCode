@@ -4,12 +4,10 @@ class Solution(object):
         longest = 0
 
         for num in numSet:
-            if num - 1 not in numSet:  # start of sequence
-                length = 1
+            if num - 1 not in numSet:
+                length=1
 
                 while num + length in numSet:
-                    length += 1
-
-                longest = max(longest, length)
-
+                    length+=1
+                longest=max(longest , length)
         return longest
