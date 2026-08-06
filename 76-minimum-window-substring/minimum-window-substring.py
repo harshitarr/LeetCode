@@ -1,11 +1,13 @@
+from collections import Counter
+
 class Solution(object):
     def minWindow(self, s, t):
-        need, missing = collections.Counter(t), len(t)
+        need, missing = Counter(t), len(t)
         i = I = J = 0
         for j, c in enumerate(s, 1):
             missing -= need[c] > 0
             need[c] -= 1
-            if not missing:
+            if missing == 0:
                 while i < j and need[s[i]] < 0:
                     need[s[i]] += 1
                     i += 1
