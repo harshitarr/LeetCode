@@ -1,11 +1,11 @@
 class Solution(object):
     def missingNumber(self, nums):
-        nums.sort()
-        arr = nums
-        for i in range(len(arr)):
-            if arr[i]!=i:
-                return i
-        return len(nums)
+        n = len(nums)
+        expected = n*(n+1)//2
+        actual = 0
+        for x in nums:
+            actual+=x
+        return expected - actual
 
 
             
